@@ -41,6 +41,6 @@
 # Be careful
 <p>Do not use any variable with name start by "anti_bot" or "anti-bot"</p>
 
-# Things I haven't do
-<p>Now, this verification have not support the touch-screen device</p>
+# Things I haven't done yet
+<p>Now, this verification has not supported the touch-screen device</p>
 <p>I am working on it now. </p>
