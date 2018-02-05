@@ -1,0 +1,285 @@
+/*-----------------------------------------------*/
+/*Define the interface size*/
+
+.anti-bot-frame-verylarge {
+    width: 310px;
+    height: 240px;
+    position: relative;
+    margin-left: 100px;
+    margin-top: 100px;
+    font-size: 15px;
+}
+
+.anti-bot-frame-large {
+    width: 250px;
+    height: 193.55px;
+    position: relative;
+    margin-left: 100px;
+    margin-top: 100px;
+    font-size: 13px;
+}
+
+.anti-bot-frame-medium {
+    width: 200px;
+    height: 154.84px;
+    position: relative;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+.anti-bot-frame-small {
+    width: 150px;
+    height: 116.13px;
+    position: relative;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+.anti-bot-frame-verysmall {
+    width: 110px;
+    height: 85.16px;
+    position: relative;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+
+/*-----------------------------------------------*/
+
+/*Defined the interface's elements size in percentage*/
+
+#anti_bot_frame {
+    background-color: #FFF;
+}
+
+#anti_bot_large_picture {
+    width: 96.77%;
+    height: 83.33%;
+    position: absolute;
+    bottom: 2%;
+    left: 1.61%;
+    z-index: 1;
+}
+
+#anti_bot_small_picture {
+    width: 16.13%;
+    height: 20.83%;
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    box-shadow: 0 0 4px 2px #555;
+    z-index: 2;
+}
+
+#anti_bot_loading_area {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    background-color: inherit;
+    opacity: 0;
+}
+
+#anti_bot_tick_area {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    background-color: inherit;
+    opacity: 0;
+}
+
+/*-----------------------------------------------*/
+
+/*Defined the loading animation*/
+
+@keyframes anti_bot_loading_key_frame {
+    0% {
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        top: 0;
+        left: 11.29%;
+        width: 77.42%;
+        height: 100%;
+        opacity: 0;
+    }
+}
+
+.anti_bot_loading_circle div {
+    box-sizing: content-box;
+    position: absolute;
+    border-width: 4px;
+    border-style: solid;
+    opacity: 1;
+    border-radius: 50%;
+    animation: anti_bot_loading_key_frame 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.anti_bot_loading_circle div:nth-child(1) {
+    border-color: #AAA;
+}
+
+.anti_bot_loading_circle div:nth-child(2) {
+    border-color: #777;
+    animation-delay: -0.5s;
+}
+
+.anti_bot_loading_circle {
+    width: 100% !important;
+    height: 100% !important;
+    transform: translate(-100%, -100%) scale(1) translate(100%, 100%);
+}
+
+/*-----------------------------------------------*/
+
+/*Defined the refresh button, which is created by css*/
+
+.anti-bot-loading-framework-large {
+    position: absolute;
+    top: 0;
+    left: 11.29%;
+    width: 77.42%;
+    height: 100%;
+    background-color: inherit;
+    transition: 0.2s;
+}
+
+.anti-bot-loading-framework {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: 7.74%;
+    height: 10%;
+    background-color: inherit;
+    transition: 0.2s;
+}
+
+.anti-bot-loading-framework:hover {
+    transform: scale(1.2);
+}
+
+.anti-bot-loading-framework-large:hover {
+    transform: scale(1.2);
+}
+
+.anti-bot-loading-large-circle {
+    position: relative;
+    top: 15%;
+    left: 15%;
+    height: 70%;
+    width: 70%;
+    background-color: #AAA;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.anti-bot-loading-small-circle {
+    position: relative;
+    top: -45%;
+    left: 25%;
+    height: 50%;
+    width: 50%;
+    background-color: inherit;
+    z-index: 2;
+    border-radius: 50%;
+}
+
+.anti-bot-loading-cover-1 {
+    position: relative;
+    top: -87.5%;
+    left: 57.25%;
+    height: 35%;
+    width: 35%;
+    border-top-right-radius: 90%;
+    background-color: inherit;
+    z-index: 3;
+    transform: rotate(45deg);
+}
+
+.anti-bot-loading-arror {
+    position: relative;
+    background-color: #AAA;
+    top: -133%;
+    left: 65%;
+    height: 25%;
+    width: 20%;
+    transform: rotate(45deg);
+    z-index: 4;
+}
+
+.anti-bot-loading-cover-2 {
+    position: relative;
+    background-color: inherit;
+    top: -165%;
+    left: 78%;
+    height: 28%;
+    width: 15%;
+    z-index: 5;
+    transform: rotate(-10.01deg);
+}
+
+.anti-bot-loading-cover-3 {
+    position: relative;
+    background-color: inherit;
+    top: -177%;
+    left: 60%;
+    height: 28%;
+    width: 15%;
+    z-index: 5;
+    transform: rotate(-79.99deg);
+}
+
+/*-----------------------------------------------*/
+
+/*Defined the huge tick after verifying*/
+
+.anti-bot-tick-framework{
+    position: absolute;
+    left: 11.29%;
+    height: 100%;
+    width: 77.42%;
+    background-color: #FFF;
+}
+.anti-bot-tick-left {
+    position: absolute;
+    height: 30%;
+    width: 6%;
+    background-color: #28a745;
+    z-index: 1;
+    top: 40%;
+    left: 35%;
+    transform: rotate(-45deg);
+}
+.anti-bot-tick-right {
+    position: absolute;
+    height: 50%;
+    width: 6%;
+    background-color: #28a745;
+    z-index: 2;
+    left: 60%;
+    top: 23%;
+    transform: rotate(45deg);
+}
+.anti-bot-tick-cover {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    background-color: inherit;
+    z-index: 3;
+    transition: 1s;
+    animation: anti-bot-tick-cover-translate 2s;
+    animation-fill-mode: forwards;
+}
+@keyframes anti-bot-tick-cover-translate {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
+}
