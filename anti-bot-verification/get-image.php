@@ -58,14 +58,14 @@ if ($_GET["type"] == "large_picture") {  // Generate large image with box
 
 
     // Draw the square with shadow
-    $i = 87;
+    $i = 57;
     while ($i < 127) {
         imagerectangle($img, $position_x_1, $position_y_1, $position_x_2, $position_y_2, imagecolorallocatealpha($img, 0, 0, 0, $i));
         $position_x_1 = $position_x_1 + 1;
         $position_y_1 = $position_y_1 + 1;
         $position_x_2 = $position_x_2 - 1;
         $position_y_2 = $position_y_2 - 1;
-        $i = $i + 5;
+        $i = $i + 10;
     }
 
 
