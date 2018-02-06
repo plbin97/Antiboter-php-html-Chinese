@@ -340,7 +340,7 @@ function anti_bot_reload() {
             frame.style = "";
 
             // Initialize the interface
-            anti_bot_verification_ini();
+            anti_bot_verification_ini(anti_bot_verification_path);
         }
     }
 }
