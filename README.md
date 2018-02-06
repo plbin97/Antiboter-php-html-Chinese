@@ -1,14 +1,15 @@
-# Anti-bot-verification-php
-<p>Anti-bot-verification-php is a beautiful, easy, safety human-rebot php verification tool. The function is similar to reCAPTCHA</p>
+# Antiboter for php
+<p>Antiboter is a beautiful, easy, safety human-rebot php verification tool. The function is similar to reCAPTCHA</p>
 <p>This is not based on any framework (such as jQure, react and bootstrap)</p>
 <p>I purely use JavaScript and CSS3 to built the font-end</p>
+<p>This product can work on both PC and Mobile device brower. </p>
 
 # Demo
 <p>https://www.teenet.me/verification</p>
 
 # Based on (Environment)
 <p>php 5 +</p>
-<p>IE9+</p>
+<p>php-gd library</p>
 
 # How to use
 <p>First, you need to download the files from recent release. </p>
@@ -41,6 +42,5 @@
 # Be careful
 <p>Do not use any variable with name start by "anti_bot" or "anti-bot"</p>
 
-# Things I haven't done yet
-<p>Now, this verification has not supported the touch-screen device</p>
-<p>I am working on it now. </p>
+# Things we are planing to do
+<p>Now, we are planing to build an AI to make the verification more safety. </p>
