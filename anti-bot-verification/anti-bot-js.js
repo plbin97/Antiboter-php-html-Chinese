@@ -66,6 +66,7 @@ function anti_bot_preload() {
 
                 // Start monitoring the mouse event to small picture
                 anti_bot_start_mouse_monitor();
+                anti_bot_start_touchpoint_monitor();
 
                 // --------------------------------------------------------------
                 // Finished building the interface, then the program start to appear the interface (Change opacity)
@@ -94,7 +95,6 @@ function anti_bot_start_mouse_monitor() {
     Function anti_bot_start_mouse_monitor(): Start the mouse monitoring for small picture
     Before calling this function, make sure that the interface of verification is loaded.
     * */
-
     document.getElementById("anti_bot_small_picture").onmousedown = function (ev) {
         // Execute if the small picture is clicked
         // ----------------------------------------------
@@ -155,6 +155,81 @@ function anti_bot_start_mouse_monitor() {
                 // ----------------------------------------------------------
             }
             document.onmouseup = null;
+        };
+    };
+}
+
+function anti_bot_start_touchpoint_monitor() {
+    /*
+    Function anti_bot_start_touchpoint_monitor(): Start the finger monitoring for small picture.
+    This function is similar to anti_bot_start_mouse_monitor(). However, this function is used for touch screen user.
+
+    Before calling this function, make sure that the interface of verification is loaded.
+    * */
+    document.getElementById("anti_bot_small_picture").ontouchstart = function (ev) {
+
+        // While the finger is touching on the screen, preventDefault would disable scrolling.  
+        ev.preventDefault();
+
+        // Execute if the small picture is clicked
+        // ----------------------------------------------
+        // Change the shadow of the picture
+        var frame = document.getElementById("anti_bot_frame");
+        anti_bot_shadow_change(frame, 2, 0, 0.2, "#AAA", function () {
+            frame.style.boxShadow = "0 0 0 0";
+        });
+        var small_pic = document.getElementById("anti_bot_small_picture");
+        var large_picture = document.getElementById("anti_bot_large_picture");
+        anti_bot_shadow_change(large_picture, 2, 0, 0.2, "#AAA", function () {
+            large_picture.style.boxShadow = "0 0 0 0";
+        });
+
+        // --------------------------------------------
+        // get the distance from the small picture borders to the center of the finger
+        var mouse_smallpic_distance_x = ev.touches[0].clientX - small_pic.offsetLeft;
+        var mouse_smallpic_distance_y = ev.touches[0].clientY - small_pic.offsetTop;
+
+        // ---------------------------------------------
+        document.ontouchmove = function (ev) {
+            // Execute if the finger is moving.
+            // The small picture would change its location and tracking on the finger.
+            small_pic.style.top = ev.touches[0].clientY - mouse_smallpic_distance_y + "px";
+            small_pic.style.left = ev.touches[0].clientX - mouse_smallpic_distance_x + "px";
+        };
+
+        document.ontouchend = function (ev) {
+            // Execute if the finger moves out from screen:
+            // --------------------------------------------
+            document.ontouchmove = null;
+            var large_picture_coordinate = anti_bot_getCoordinateByElement(large_picture);
+
+            // Start verification if the small picture is placed in the large picture
+            if (ev.changedTouches[0].clientY > large_picture_coordinate.top && ev.changedTouches[0].clientY < large_picture_coordinate.bottom && ev.changedTouches[0].clientX > large_picture_coordinate.left && ev.changedTouches[0].clientX < large_picture_coordinate.right) {
+                // -----------------------------------------------------------
+                // Execute if the small picture is placed inside of large picture
+
+                // Get the coordinate
+                var x_coordinate = ((small_pic.offsetLeft - large_picture.offsetLeft) * 300) / large_picture.offsetWidth;
+                var y_coordinate = ((small_pic.offsetTop - large_picture.offsetTop) * 200) / large_picture.offsetHeight;
+
+                // Send the coordinate to the back-end
+                anti_bot_start_loading_status(function () {
+                    anti_bot_verify(x_coordinate, y_coordinate);
+                });
+                // -----------------------------------------------------------
+            } else {
+                // ----------------------------------------------------------
+                // Execute if the small picture is not placed inside of large picture
+
+                // Move the small picture to the original position
+                anti_bot_smallpic_moveback_to_original(small_pic, anti_bot_smallpic_ini_position.left, anti_bot_smallpic_ini_position.top);
+
+                // Change back for the shadows
+                anti_bot_shadow_change(frame, 0, 2, 0.1, "#AAA", null);
+                anti_bot_shadow_change(large_picture, 0, 2, 0.1, "#aaa", null);
+                // ----------------------------------------------------------
+            }
+            document.ontouchend = null;
         };
     };
 }

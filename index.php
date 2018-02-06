@@ -27,6 +27,7 @@ please change the div tag below into:
 <div id="anti_bot_frame" class="anti-bot-frame-verysmall">
 
 -->
+
 <div id="anti_bot_frame" class="anti-bot-frame-large"></div>
 <!-- If you want to add some style to that div, please make sure that the width:height ratio is 310:240 -->
 
