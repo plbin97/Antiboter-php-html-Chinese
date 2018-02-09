@@ -1,4 +1,4 @@
-# Antiboter for php
+# Antiboter for php-html
 <p>Antiboter is a beautiful, easy, safety human-rebot php verification tool. The function is similar to reCAPTCHA</p>
 <p>This is not based on any framework (such as jQure, react and bootstrap)</p>
 <p>I purely use JavaScript and CSS3 to built the font-end</p>
