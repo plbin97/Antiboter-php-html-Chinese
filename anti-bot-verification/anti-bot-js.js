@@ -95,6 +95,12 @@ function anti_bot_start_mouse_monitor() {
     Function anti_bot_start_mouse_monitor(): Start the mouse monitoring for small picture
     Before calling this function, make sure that the interface of verification is loaded.
     * */
+
+    // Make pictures unselectable.
+    document.getElementById("anti_bot_frame").onselectstart = function () {
+        return false;
+    };
+
     document.getElementById("anti_bot_small_picture").onmousedown = function (ev) {
         // Execute if the small picture is clicked
         // ----------------------------------------------
