@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Anti-bot-verification</title>
     <!--------------------------------------------------------------------->
-    <!-- You need those two files:  -->
+    <!-- 这里导入两个文件  -->
     <link href="anti-bot-verification/anti-bot-style.css" rel="stylesheet"/>
     <script type="text/javascript" src="anti-bot-verification/anti-bot-js.js"></script>
     <!--------------------------------------------------------------------->
@@ -14,11 +14,9 @@
 <body>
 <!--------------------------------------------------------------------->
 <!--
-Do not put two or more varification interface in same page
+千万不要放置两个图像验证在同一个页面上
 
-If you want to have different size of verification interface:
-
-please change the div tag below into:
+如果你想要不同大小的图像验证界面，请把标签修改成：
 
 <div id="anti_bot_frame" class="anti-bot-frame-verylarge">
 <div id="anti_bot_frame" class="anti-bot-frame-large">
@@ -26,10 +24,10 @@ please change the div tag below into:
 <div id="anti_bot_frame" class="anti-bot-frame-small">
 <div id="anti_bot_frame" class="anti-bot-frame-verysmall">
 
+如果你想要自定义大小的话，请务必把宽高比例设置为310:240。
 -->
 
 <div id="anti_bot_frame" class="anti-bot-frame-large"></div>
-<!-- If you want to add some style to that div, please make sure that the width:height ratio is 310:240 -->
 
 <!--------------------------------------------------------------------->
 </body>
@@ -37,8 +35,8 @@ please change the div tag below into:
 
 
 <!--------------------------------------------------------------------->
-<!-- Run this javascript at the end of the page -->
+<!-- 在界面尾部，运行JS -->
 <script>anti_bot_verification_ini("anti-bot-verification");</script>
-<!-- The parameter "anti-bot-verification" is the path to the anti-bot-verification folder. You have to change it if needed -->
+<!-- 其参数 "anti-bot-verification" 是这个页面到后台目录的路径，必要时修改 -->
 <!--------------------------------------------------------------------->
 </html>
